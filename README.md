@@ -96,7 +96,7 @@
 
 添加完所有 Secrets 后，页面将显示如下：
 
-![Secrets List](https://docs.github.com/assets/cb-59829/mw-1440/images/help/repository/actions-secrets-list.webp)
+<img width="798" alt="image" src="https://github.com/user-attachments/assets/ac9f79d3-1c95-418c-9c3f-dfe8e11dd550" />
 
 所有这些 Secrets 都会被安全地存储，并且只会在工作流运行时使用，不会暴露在日志或其他可见的输出中。
 
