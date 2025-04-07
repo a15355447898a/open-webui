@@ -43,7 +43,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .                 # Docker 构建上下文 (Dockerfile 所在目录)
-          file: ./Dockerfile         # Dockerfile 的路径
+          file: ./DockerFile         # Dockerfile 的路径
           push: true                 # 构建完成后推送到仓库
           pull: true
           tags: |
