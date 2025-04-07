@@ -47,7 +47,7 @@
 1. 登录 Docker Hub
 2. 点击右上角头像 → Account Settings → Security
 3. 点击 "New Access Token"
-4. 为令牌命名（例如 "GitHub Actions"）并选择适当的权限
+4. 为令牌命名（例如 "GitHub Actions"）并选择适当的权限（我选择的是 read/write 权限）
 5. 复制生成的令牌并保存到 GitHub Secrets
 
 ### 在 GitHub 中设置 Secrets
@@ -134,10 +134,9 @@ git push origin v1.0.0
 
 ### 构建结果
 
-成功构建后，将生成两个Docker镜像标签：
+成功构建后，将生成一个Docker镜像标签：
 
 1. `你的用户名/你的仓库名:custom-openwebui-1.0.0` - 推送到Docker Hub
-2. `custom-openwebui-1.0.0` - 本地标签
 
 可以通过以下命令拉取和使用镜像：
 
