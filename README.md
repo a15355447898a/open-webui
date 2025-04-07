@@ -22,6 +22,84 @@
 
 ---
 
+# GitHub Actions 自动构建说明
+
+本项目使用 GitHub Actions 自动构建 Docker 镜像并推送到 Docker Hub。当你推送符合 `v*.*.*` 格式的标签时（例如 `v1.0.0`），会自动触发构建流程。
+
+## 如何配置 GitHub Secrets
+
+如果你 fork 了本项目并希望自动构建推送到自己的 Docker Hub 账号，需要在 GitHub 仓库中设置以下 Secrets：
+
+1. `DOCKERHUB_USERNAME`: 你的 Docker Hub 用户名
+2. `DOCKERHUB_TOKEN`: 你的 Docker Hub 访问令牌（不要使用密码，请在 Docker Hub 创建访问令牌）
+3. `DOCKERHUB_REPO`: （可选）你希望推送到的仓库名称，默认为 "study"
+
+### 创建 Docker Hub 访问令牌
+
+1. 登录 Docker Hub
+2. 点击右上角头像 → Account Settings → Security
+3. 点击 "New Access Token"
+4. 为令牌命名（例如 "GitHub Actions"）并选择适当的权限
+5. 复制生成的令牌并保存到 GitHub Secrets
+
+### 在 GitHub 中设置 Secrets
+
+1. 在你 fork 的仓库中，点击 "Settings"
+2. 在左侧菜单中选择 "Secrets and variables" → "Actions"
+3. 点击 "New repository secret"
+4. 添加上述三个 secrets
+
+完成这些设置后，当你推送新的版本标签时，GitHub Actions 将自动构建镜像并推送到你指定的 Docker Hub 仓库。
+
+## 使用示例
+
+### 创建和推送版本标签
+
+要触发自动构建，你需要创建并推送一个符合 `v*.*.*` 格式的Git标签。以下是完整的命令示例：
+
+```bash
+# 确保你的更改已提交
+git add .
+git commit -m "准备发布 v1.0.0"
+
+# 创建标签
+git tag v1.0.0
+
+# 推送标签到GitHub（这将触发构建）
+git push origin v1.0.0
+```
+
+### 构建过程
+
+1. 推送标签后，在GitHub仓库页面点击"Actions"标签页查看构建进度
+2. 你将看到一个名为"Build and Push Custom OpenWebUI Docker Image"的工作流正在运行
+3. 构建完成后，状态会变为绿色的对勾标记
+
+### 构建结果
+
+成功构建后，将生成两个Docker镜像标签：
+
+1. `你的用户名/你的仓库名:custom-openwebui-1.0.0` - 推送到Docker Hub
+2. `custom-openwebui-1.0.0` - 本地标签
+
+可以通过以下命令拉取和使用镜像：
+
+```bash
+# 拉取镜像
+docker pull 你的用户名/你的仓库名:custom-openwebui-1.0.0
+
+# 运行容器
+docker run -d -p 8080:8080 你的用户名/你的仓库名:custom-openwebui-1.0.0
+```
+
+### 排查常见问题
+
+1. **构建失败**：检查GitHub Actions日志获取详细错误信息
+2. **推送失败**：确认Docker Hub凭据是否正确设置
+3. **权限问题**：确保你的Docker Hub访问令牌有足够的权限
+
+---
+
 # 版权与许可 (License)
 
 本项目使用了以下第三方字体，它们分别遵循各自的原始许可证：
