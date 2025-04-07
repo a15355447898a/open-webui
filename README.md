@@ -51,6 +51,55 @@
 
 完成这些设置后，当你推送新的版本标签时，GitHub Actions 将自动构建镜像并推送到你指定的 Docker Hub 仓库。
 
+## 详细的 GitHub Secrets 设置指南
+
+### 第一步：进入仓库设置
+
+![GitHub Settings](https://docs.github.com/assets/images/help/repository/repo-settings-tab.png)
+
+1. 进入你 fork 后的 GitHub 仓库
+2. 点击顶部导航栏中的 "Settings" 选项卡
+
+### 第二步：找到 Secrets 设置页面
+
+![GitHub Secrets](https://docs.github.com/assets/images/help/settings/actions-sidebar-secret.png)
+
+1. 在左侧菜单中找到 "Secrets and variables"
+2. 点击展开并选择 "Actions"
+
+### 第三步：添加所需的 Secrets
+
+![Add Secret](https://docs.github.com/assets/images/help/repository/actions-secrets-add-secret.png)
+
+对于每个 Secret，点击 "New repository secret" 按钮，然后填写以下信息：
+
+#### 1. DOCKERHUB_USERNAME
+
+- **名称**：DOCKERHUB_USERNAME
+- **值**：你的 Docker Hub 用户名
+- **示例**：如果你的 Docker Hub 账号是 "myusername"，则填写 "myusername"
+
+#### 2. DOCKERHUB_TOKEN
+
+- **名称**：DOCKERHUB_TOKEN
+- **值**：你在 Docker Hub 创建的访问令牌（不是密码）
+- **注意**：这是一个敏感信息，创建后将无法再次查看完整令牌，请妥善保存
+
+#### 3. DOCKERHUB_REPO (可选)
+
+- **名称**：DOCKERHUB_REPO
+- **值**：你想推送镜像的仓库名称
+- **示例**：如果你想推送到 "myusername/myapp"，则填写 "myapp"
+- **默认值**：如果不设置此项，将默认使用 "study" 作为仓库名
+
+### 完成设置
+
+添加完所有 Secrets 后，页面将显示如下：
+
+![Secrets List](https://docs.github.com/assets/cb-59829/mw-1440/images/help/repository/actions-secrets-list.webp)
+
+所有这些 Secrets 都会被安全地存储，并且只会在工作流运行时使用，不会暴露在日志或其他可见的输出中。
+
 ## 使用示例
 
 ### 创建和推送版本标签
@@ -121,7 +170,7 @@ MiSans Global 是由小米主导，联合蒙纳字库、汉仪字库共同打造
 
 # Misans 许可协议
 
-本《MiSans 字体知识产权许可协议》（以下简称“协议”）是您与小米科技有限责任公司（以下简称“小米”或“许可方”）之间有关安装、使用 MiSans 字体（以下简称“MiSans”或“MiSans 字体”）的法律协议。您在使用 MiSans 的所有或任何部分前，应接受本协议中规定的所有条款和条件。安装、使用 MiSans 的行为表示您同意接受本协议所有条款的约束。否则，请不要安装或使用 MiSans，并应立即销毁和删除所有 MiSans 字体包。
+本《MiSans 字体知识产权许可协议》（以下简称"协议"）是您与小米科技有限责任公司（以下简称"小米"或"许可方"）之间有关安装、使用 MiSans 字体（以下简称"MiSans"或"MiSans 字体"）的法律协议。您在使用 MiSans 的所有或任何部分前，应接受本协议中规定的所有条款和条件。安装、使用 MiSans 的行为表示您同意接受本协议所有条款的约束。否则，请不要安装或使用 MiSans，并应立即销毁和删除所有 MiSans 字体包。
 
 根据本协议的条款和条件，许可方在此授予您一份不可转让的、非独占的、免版税的、可撤销的、全球性的版权许可，使您依照本协议约定使用 MiSans 字体，前提是符合下列条件：
 
