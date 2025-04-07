@@ -6,6 +6,11 @@
 
 第 5 次构建尝试，标签为 v0.0.5
 
+> 成功了！！！
+
+> <img width="710" alt="image" src="https://github.com/user-attachments/assets/c5cb6bc0-9bcc-43d7-bc79-e0eef32320d7" />
+
+
 ### 2025 年 4 月 7 日 17:50
 
 第 4 次构建尝试，标签为 v0.0.4
