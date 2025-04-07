@@ -55,21 +55,21 @@
 
 ### 第一步：进入仓库设置
 
-![GitHub Settings](https://docs.github.com/assets/images/help/repository/repo-settings-tab.png)
+<img width="960" alt="image" src="https://github.com/user-attachments/assets/6d37b135-e454-455a-b0bd-4ad4f8002eaf" />
 
 1. 进入你 fork 后的 GitHub 仓库
 2. 点击顶部导航栏中的 "Settings" 选项卡
 
 ### 第二步：找到 Secrets 设置页面
 
-![GitHub Secrets](https://docs.github.com/assets/images/help/settings/actions-sidebar-secret.png)
+<img width="356" alt="image" src="https://github.com/user-attachments/assets/5c97c9ba-7170-4697-9f43-bef7bee71584" />
 
 1. 在左侧菜单中找到 "Secrets and variables"
 2. 点击展开并选择 "Actions"
 
 ### 第三步：添加所需的 Secrets
 
-![Add Secret](https://docs.github.com/assets/images/help/repository/actions-secrets-add-secret.png)
+<img width="797" alt="image" src="https://github.com/user-attachments/assets/1e4b80bb-977c-47ff-a63a-c727fdd2e824" />
 
 对于每个 Secret，点击 "New repository secret" 按钮，然后填写以下信息：
 
